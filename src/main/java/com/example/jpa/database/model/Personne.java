@@ -2,6 +2,8 @@ package com.example.jpa.database.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,8 +11,9 @@ import javax.persistence.Table;
 @Table(name = "personne")
 public class Personne {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	@Column(name = "nom", length = 30, nullable = false, unique = true)
+	@Column(name = "nom", length = 30, nullable = false)
 	private String nom;
 	@Column(name = "prenom", length = 30, nullable = false)
 	private String prenom;
@@ -43,4 +46,10 @@ public class Personne {
 		this.prenom = prenom;
 	}
 
+	@Override
+	public String toString() {
+		return "Personne [id=" + id + ", nom=" + nom + ", prenom=" + prenom + "]";
+	}
+
+	
 }
