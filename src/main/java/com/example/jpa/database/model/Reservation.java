@@ -29,6 +29,11 @@ public class Reservation {
     )
     private Set<Chambre> chambres;
 
+	public Reservation() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Integer getId() {
 		return id;
 	}

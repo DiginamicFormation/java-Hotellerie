@@ -1,4 +1,3 @@
-com\example\jpa\database\model\Facture.class
 com\example\jpa\database\DatabaseHandle.class
 com\example\jpa\Main.class
 com\example\jpa\database\model\Chambre.class
