@@ -1,21 +1,22 @@
 package com.example.jpa.database;
 
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityManager;
+
 import javax.persistence.Persistence;
 
 public class DatabaseHandle {
 
 	// Create an EntityManagerFactory when you start the application.
-	private static EntityManagerFactory ENTITY_MANAGER_FACTORY;
+	private static EntityManager entityManager;
 	
-	public static EntityManagerFactory getEntityManagerFactory()
+	public static EntityManager getEntityManagerFactory()
 	{
-		if (ENTITY_MANAGER_FACTORY == null)
+		if (entityManager == null || ! entityManager.isOpen())
 		{
-			ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("jpa_test");
+			entityManager = Persistence.createEntityManagerFactory("jpa_test").createEntityManager();
 		}
 		
-		return ENTITY_MANAGER_FACTORY;
+		return entityManager;
 	}
 	
 	
