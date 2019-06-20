@@ -2,4 +2,3 @@ com\example\jpa\database\DatabaseHandle.class
 com\example\jpa\Main.class
 com\example\jpa\database\model\Chambre.class
 com\example\jpa\database\model\Hotel.class
-com\example\jpa\database\model\Reservation.class

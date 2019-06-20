@@ -1,15 +1,11 @@
 package com.example.jpa.database.model;
 
-import java.util.Set;
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity(name="chambre")
@@ -26,10 +22,6 @@ public class Chambre {
 	@ManyToOne
 	@JoinColumn(name="id_hotel")
 	private Hotel hotel;
-	
-    @ManyToMany(mappedBy="chambres")
-    private Set<Reservation> reservations;
-
 
 	public Chambre() {
 		super();
@@ -58,14 +50,6 @@ public class Chambre {
 
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
-	}
-
-	public Set<Reservation> getReservations() {
-		return reservations;
-	}
-
-	public void setReservations(Set<Reservation> reservations) {
-		this.reservations = reservations;
 	}
 
 	
