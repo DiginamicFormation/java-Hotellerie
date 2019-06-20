@@ -1,13 +1,11 @@
 package com.example.jpa;
 
 import javax.persistence.EntityManager;
-
-
 import javax.persistence.EntityTransaction;
 
 import com.example.jpa.database.DatabaseHandle;
 import com.example.jpa.database.model.Chambre;
-import com.example.jpa.database.model.IdentifiantChambre;
+import com.example.jpa.database.model.Hotel;
 
 public class Main {
 	
@@ -24,20 +22,19 @@ public class Main {
 		transaction.begin();
 		
 		
-		IdentifiantChambre ic = new IdentifiantChambre();
-		ic.setEtage(2);
-		ic.setNumero(14);
+		Hotel hotel = new Hotel();
+		hotel.setNom("Les flots bleus");
 		
-		Chambre c = new Chambre();
-		c.setId(ic);
-		c.setPrix(138.00);
+		Chambre chambre = new Chambre();
+		chambre.setNumeroChambre(108);
+		chambre.setHotel(hotel);
 		
-		em.persist(c);
+		em.persist(hotel);
+		em.persist(chambre);
 		
 		
 		// commit data
 		transaction.commit();
-		
 				
 		em.close();
 		
