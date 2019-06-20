@@ -1,20 +1,25 @@
 package com.example.jpa.database.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity(name="chambre")
+@Entity
+@Table(name="chambre")
 public class Chambre {
 	
 	@Id
-	@Column(name = "id_chambre")
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
+	@GeneratedValue
+	private Long id;
 	
 	@Column(name = "numero_chambre")
 	private int numeroChambre;
@@ -22,17 +27,20 @@ public class Chambre {
 	@ManyToOne
 	@JoinColumn(name="id_hotel")
 	private Hotel hotel;
+	
+	@OneToMany(mappedBy = "chambre", cascade = CascadeType.ALL)
+	private List<ChambreReservation> reservations = new ArrayList<ChambreReservation>();
 
 	public Chambre() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -52,6 +60,15 @@ public class Chambre {
 		this.hotel = hotel;
 	}
 
+	public List<ChambreReservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<ChambreReservation> reservations) {
+		this.reservations = reservations;
+	}
+
+	
 	
 
 }

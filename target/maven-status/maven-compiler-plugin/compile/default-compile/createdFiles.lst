@@ -1,4 +1,7 @@
+com\example\jpa\database\model\ChambreReservation.class
+com\example\jpa\database\model\ChambreReservationId.class
 com\example\jpa\database\DatabaseHandle.class
 com\example\jpa\Main.class
 com\example\jpa\database\model\Chambre.class
 com\example\jpa\database\model\Hotel.class
+com\example\jpa\database\model\Reservation.class

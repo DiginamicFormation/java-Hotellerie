@@ -43,6 +43,14 @@ public class Hotel {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	public Set<Chambre> getChambres() {
+		return chambres;
+	}
+
+	public void setChambres(Set<Chambre> chambres) {
+		this.chambres = chambres;
+	}
 	
 	
 
