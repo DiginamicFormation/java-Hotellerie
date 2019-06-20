@@ -1,3 +1,4 @@
-com\example\jpa\database\model\Personne.class
+com\example\jpa\database\model\IdentifiantChambre.class
 com\example\jpa\database\DatabaseHandle.class
 com\example\jpa\Main.class
+com\example\jpa\database\model\Chambre.class

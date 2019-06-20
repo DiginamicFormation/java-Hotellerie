@@ -2,11 +2,12 @@ package com.example.jpa;
 
 import javax.persistence.EntityManager;
 
+
 import javax.persistence.EntityTransaction;
 
 import com.example.jpa.database.DatabaseHandle;
-import com.example.jpa.database.model.Entreprise;
-import com.example.jpa.database.model.Particulier;
+import com.example.jpa.database.model.Chambre;
+import com.example.jpa.database.model.IdentifiantChambre;
 
 public class Main {
 	
@@ -23,23 +24,20 @@ public class Main {
 		transaction.begin();
 		
 		
-		Entreprise e = new Entreprise(); // création d’une entreprise
-		e.setNomSocial("CIE AND CO");
-		e.setSiret("0123456789012");
-		e.setMail("entreprise@pro.com");
-		em.persist(e);
+		IdentifiantChambre ic = new IdentifiantChambre();
+		ic.setEtage(2);
+		ic.setNumero(14);
 		
-		Particulier p = new Particulier(); // création d’un particulier
-		p.setNom("Durant");
-		p.setPrenom("Cédric");
-		p.setMail("particulier@perso.fr");
-		em.persist(p);
+		Chambre c = new Chambre();
+		c.setId(ic);
+		c.setPrix(138.00);
+		
+		em.persist(c);
+		
 		
 		// commit data
 		transaction.commit();
 		
-		System.out.println("ID entreprise => " + e.getId());
-		System.out.println("ID personne => " + p.getId());
 				
 		em.close();
 		
